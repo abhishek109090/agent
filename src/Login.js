@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       // Define the authentication endpoint URL
-      const apiUrl = 'http://3.109.145.125:9001/authAgent';
+      const apiUrl = 'http://65.0.50.168:9001/authAgent';
 
       // Create a data object with the user's credentials
       const data = {
