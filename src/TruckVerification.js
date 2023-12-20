@@ -21,7 +21,7 @@ function TruckVerification() {
     if (feildcrn) {
       console.log(feildcrn)
       // Fetch truck data based on CRN from the server
-      axios.get(`http://3.109.145.125:9001/truckverify?feildcrn=${feildcrn}`)
+      axios.get(`http://65.0.50.168:9001/truckverify?feildcrn=${feildcrn}`)
         .then((response) => {
           setTruckData(response.data);
           console.log(response.data)
@@ -35,7 +35,7 @@ function TruckVerification() {
     const currentDate  = new Date();
     const verificationDate = currentDate.toISOString().split('T')[0];
     // Send a request to update the status to "Completed" for the given truck
-    axios.put(`http://3.109.145.125:9001/truckUpdate/${truckId}`, { status: 'Completed', verificationDate: verificationDate })
+    axios.put(`http://65.0.50.168:9001/truckUpdate/${truckId}`, { status: 'Completed', verificationDate: verificationDate })
       .then((response) => {
         // Update the status in the frontend
         const updatedTruckData = truckData.map((truck) => {
@@ -53,7 +53,7 @@ function TruckVerification() {
 
   const handleReject = (truckId) => {
     // Send a request to update the status to "Rejected" for the given truck
-    axios.put(`http://3.109.145.125:9001/truckUpdate/${truckId}`, { status: 'Rejected' })
+    axios.put(`http://65.0.50.168:9001/truckUpdate/${truckId}`, { status: 'Rejected' })
       .then((response) => {
         // Update the status in the frontend
         const updatedTruckData = truckData.map((truck) => {
