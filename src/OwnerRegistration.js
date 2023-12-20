@@ -49,26 +49,7 @@ export default function AgentRegistration() {
       const generatedOtp = 112233;
       setRandomOtp(generatedOtp.toString());
       console.log(generatedOtp)
-      // Send the OTP via email
-      // emailjs
-      //   .send(
-      //     'service_qucoi14',
-      //     'template_3wveuz6',
-      //     { otp: generatedOtp },
-      //     {email: email},
-      //     'zWYeclc0nhy9Cdlkj'
-      //   )
-      //   .then(
-      //     (result) => {
-      //       console.log(result.text);
-      //       window.alert('OTP sent successfully.');
-      //     },
-      //     (error) => {
-      //       console.log(error.text);
-      //       window.alert('Error sending OTP.');
-      //     }
-      //   );
-      // Store the generated OTP
+     
       setRandomOtp(generatedOtp)
       setOtp(''); // Clear the previous OTP input
       setSendOtp(true);
