@@ -209,7 +209,7 @@ export default function AgentRegistration() {
 
 
     axios
-      .post('http://65.0.50.168:9001/Owner', formData, {
+      .post('https://mynode.trucksbooking.in/Owner', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Important for sending files
         },
