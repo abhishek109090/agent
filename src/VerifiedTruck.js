@@ -12,7 +12,7 @@ function VerifiedTruck() {
 console.log('crn,',feildcrn)
   useEffect(() => {
     // Fetch owner data based on CRN
-    axios.get(`http://65.0.50.168:9001/verified?status=Completed&feildcrn=${feildcrn}`)
+    axios.get(`https://mynode.trucksbooking.in/verified?status=Completed&feildcrn=${feildcrn}`)
       .then((response) => {
         setVerifiedTrucks(response.data);
         console.log(response.data)
