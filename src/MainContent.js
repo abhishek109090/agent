@@ -9,7 +9,7 @@ const MainContent = () => {
 
   useEffect(() => {
     // Fetch data from Table 1
-    axios.get(`http://65.0.50.168:9001/table1?feildcrn=${feildcrn}`)
+    axios.get(`https://mynode.trucksbooking.in/table1?feildcrn=${feildcrn}`)
       .then((response) => {
         setTable1Data(response.data);
       })
@@ -18,7 +18,7 @@ const MainContent = () => {
       });
 
     // Fetch data from Table 2
-    axios.get(`http://65.0.50.168:9001/table2?feildcrn=${feildcrn}`)
+    axios.get(`https://mynode.trucksbooking.in/table2?feildcrn=${feildcrn}`)
       .then((response) => {
         setTable2Data(response.data);
       })
@@ -27,7 +27,7 @@ const MainContent = () => {
       });
 
     // Fetch data from Table 3
-    axios.get(`http://65.0.50.168:9001/table3?feildcrn=${feildcrn}`)
+    axios.get(`https://mynode.trucksbooking.in/table3?feildcrn=${feildcrn}`)
       .then((response) => {
         setTable3Data(response.data);
       })
