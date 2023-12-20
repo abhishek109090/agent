@@ -6,9 +6,9 @@ import './Registration.css';
 export default function AgentRegistration() {
   const navigate = useNavigate('');
   const location = useLocation();
-  const [name, setName] = useState('');
+  const [ownername, setName] = useState('');
 
-  const [email, setEmail] = useState('');
+  const [owneremail, setEmail] = useState('');
   const [userType, setUserType] = useState('');
   const [agentNumber, setAgentNumber] = useState('');
 
@@ -46,28 +46,28 @@ export default function AgentRegistration() {
   const handleSendOtp = () => {
     if (validateForm()) {
       // Generate a random 4-digit OTP
-      const generatedOtp = Math.floor(100000 + Math.random() * 900000);
+      const generatedOtp = 112233;
       setRandomOtp(generatedOtp.toString());
       console.log(generatedOtp)
       // Send the OTP via email
-      emailjs
-        .send(
-          'service_qucoi14',
-          'template_3wveuz6',
-          { otp: generatedOtp },
-          {email:email},
-          'q5nhqMCBFfD5LBjv9'
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            window.alert('OTP sent successfully.');
-          },
-          (error) => {
-            console.log(error.text);
-            window.alert('Error sending OTP.');
-          }
-        );
+      // emailjs
+      //   .send(
+      //     'service_qucoi14',
+      //     'template_3wveuz6',
+      //     { otp: generatedOtp },
+      //     {email: email},
+      //     'zWYeclc0nhy9Cdlkj'
+      //   )
+      //   .then(
+      //     (result) => {
+      //       console.log(result.text);
+      //       window.alert('OTP sent successfully.');
+      //     },
+      //     (error) => {
+      //       console.log(error.text);
+      //       window.alert('Error sending OTP.');
+      //     }
+      //   );
       // Store the generated OTP
       setRandomOtp(generatedOtp)
       setOtp(''); // Clear the previous OTP input
@@ -94,12 +94,12 @@ export default function AgentRegistration() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!name) {
-      newErrors.name = 'Please enter the owner name.';
+    if (!ownername) {
+      newErrors.ownername = 'Please enter the owner name.';
     } 
 
-    if (!email) {
-      newErrors.email = 'Please enter your email.';
+    if (!owneremail) {
+      newErrors.owneremail = 'Please enter your email.';
     }
 
     if (!userType) {
@@ -197,8 +197,8 @@ export default function AgentRegistration() {
     }
 
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
+    formData.append('ownername', ownername);
+    formData.append('owneremail', owneremail);
     formData.append('userType', userType);
     for (const key in images) {
       if (images[key]) {
@@ -228,7 +228,7 @@ export default function AgentRegistration() {
 
 
     axios
-      .post('http://65.0.50.168:9000/Owner', formData, {
+      .post('http://65.0.50.168:9001/Owner', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Important for sending files
         },
@@ -260,7 +260,7 @@ export default function AgentRegistration() {
 
             <div className="grid-container-1">
               <div><label>1. Owner Name</label>
-                <input type="text" placeholder="Enter Name" value={name}
+                <input type="text" placeholder="Enter Name" value={ownername}
                   onInput={(e) => {
                     e.target.value = e.target.value.replace(/[^A-Za-z\s]+/g, '');
                     setName(e.target.value);
@@ -272,7 +272,7 @@ export default function AgentRegistration() {
               </div>
 
               <div> <label htmlFor="text">2. Email</label>
-                <input type="email" value={email}
+                <input type="email" value={owneremail}
                   className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="Email@gmail.com" required />
                 {errors.email && <div className="text-danger">{errors.email}</div>}
               </div>
@@ -328,7 +328,7 @@ export default function AgentRegistration() {
                   onInput={(e) => {
                     e.target.value = e.target.value.replace(/[^A-Za-z\s]+/g, '');
                     setHolderName(e.target.value);
-                  }} placeholder="" pattern="^[A-Z][a-z]*(?: [A-Z][a-z]*){0,4}$"
+                  }} placeholder="" 
                   className="form-control" title="Account Holder Name must start with an uppercase letter, followed by lowercase letters and spaces."
                   required />                              {errors.holderName && <div className="text-danger">{errors.holderName}</div>}
               </div>
