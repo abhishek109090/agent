@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       // Define the authentication endpoint URL
-      const apiUrl = 'http://65.0.50.168:9001/authAgent';
+      const apiUrl = 'https://mynode.trucksbooking.in/authAgent';
 
       // Create a data object with the user's credentials
       const data = {
