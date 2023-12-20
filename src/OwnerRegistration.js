@@ -228,7 +228,7 @@ export default function AgentRegistration() {
 
 
     axios
-      .post('http://3.109.145.125:9000/Owner', formData, {
+      .post('http://65.0.50.168:9000/Owner', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Important for sending files
         },
