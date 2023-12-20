@@ -12,7 +12,7 @@ function TruckOwner() {
   const agentNumber = sessionStorage.getItem('phonenumber')
   useEffect(() => {
     // Fetch owner data based on CRN
-    axios.get(`http://3.109.145.125:9001/agentusers?feildcrn=${feildcrn}`)
+    axios.get(`http://65.0.50.168:9001/agentusers?feildcrn=${feildcrn}`)
       .then((response) => {
         setOwnerData(response.data);
         console.log(response.data)
